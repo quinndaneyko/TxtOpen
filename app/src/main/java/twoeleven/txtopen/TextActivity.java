@@ -3,6 +3,7 @@ package twoeleven.txtopen;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -32,13 +33,11 @@ public class TextActivity extends AppCompatActivity {
             br.close();
         }
         catch (IOException e) {
-            //You'll need to add proper error handling here
+            Toast.makeText(this, "Not a .txt file", Toast.LENGTH_LONG).show();
+
         }
 
-//Find the view by its id
         TextView tv = (TextView)findViewById(R.id.textView);
-
-//Set the text
         tv.setText(text.toString());
     }
 }
